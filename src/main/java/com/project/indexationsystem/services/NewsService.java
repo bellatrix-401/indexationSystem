@@ -18,8 +18,16 @@ public class NewsService {
         return (List<News>)newsData.findAll();
     }
 
-    public boolean save(News n) {
-        News data = newsData.save(n);
+    public boolean save(News url) {
+        News index = newsData.findByUrl(url.getUrl());
+        News data = null;
+        
+        if (index == null) {
+            data = newsData.save(url);
+        } else {
+            return true;
+        }
+        
         if (data != null) {
             return true;
         } else {

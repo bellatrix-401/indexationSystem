@@ -45,8 +45,8 @@ public class IndexationController {
 
     @PostMapping(path="/content/check")
     public ResponseObject check(@RequestBody IndexDir i, ResponseObject r) throws Exception {
-
         URL url;
+
         try {
             url = new URL(i.getUrl());
         } catch (MalformedURLException e) {
@@ -55,21 +55,20 @@ public class IndexationController {
 
         try {
             String inputLine;
-
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
 
             while ((inputLine = in.readLine()) != null) {
-                //inputLine = in.readLine().toString();
-                if (inputLine.contains(i.getWord())) {
+                if (inputLine.toLowerCase().contains(i.getWord().toLowerCase())) {
                     return (new ResponseObject("rejected"));
                 }
             }
 
             in.close();
 
-        } catch(IOException e){ throw e; }
+        } catch (IOException e) { throw e; }
 
         Boolean status = newsService.save(new News(i.getUrl()));
+        
         if (status) {
             return (new ResponseObject("accepted"));
         } else {
