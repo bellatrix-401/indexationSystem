@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -25,7 +26,7 @@ public class IndexationControllerTest {
 
     @Autowired
     private MockMvc mvc;
-
+    
     @MockBean
     private NewsService service;
 
@@ -36,7 +37,7 @@ public class IndexationControllerTest {
         when(service.getAll()).thenReturn(allNews);
 
         mvc.perform(get("/api/content"))
-            .andExpect(status().is(204));
+            .andExpect(status().isNoContent());
 
     }
 
@@ -52,6 +53,49 @@ public class IndexationControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$[0].url", is(news.getUrl())));
         
+    }
+
+    @Test
+    public void givenUrl_whenCheck_thenInvalidUrl() throws Exception {
+
+        String body = "{\"url\":\"something\", \"word\":\"some\"}";
+
+        mvc.perform(post("/api/content/check")
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.state", is("rejected")));
+    }
+
+    @Test
+    public void givenUrl_whenDelete_thenReturnOk() throws Exception {
+
+        String url = "{\"url\":\"http:something\"}";
+
+        when(service.delete("http:something"))
+            .thenReturn(true);
+
+        mvc.perform(delete("/api/content")
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .content(url))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void givenUrl_whenDelete_thenReturnNoContent() throws Exception {
+
+        String url = "{\"url\":\"http:something\"}";
+
+        when(service.delete("http:something"))
+            .thenReturn(false);
+
+        mvc.perform(delete("/api/content")
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .content(url))
+                .andExpect(status().isNoContent());
     }
 
 }

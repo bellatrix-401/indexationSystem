@@ -16,6 +16,7 @@ import com.project.indexationsystem.model.ResponseObject;
 import com.project.indexationsystem.services.NewsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +44,13 @@ public class IndexationController {
         }
     }
 
-    @PostMapping(path="/content/check")
+    @PostMapping(
+        path="/content/check", 
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseObject check(@RequestBody IndexDir i, ResponseObject r) throws Exception {
+
         URL url;
 
         try {
@@ -76,16 +82,19 @@ public class IndexationController {
         }
     }
 
-    @DeleteMapping("/content")
-    public String delete(@RequestBody IndexDel i, HttpServletResponse response) throws IOException {
+    @DeleteMapping(
+        path = "/content", 
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void delete(@RequestBody IndexDel i, HttpServletResponse response) throws IOException {
+        
         Boolean status = newsService.delete(i.getUrl());
 
-        if (status) {
-            return "ok";
-        } else {
+        if (!status) {
             response.sendError(HttpServletResponse.SC_NO_CONTENT);
-            return null;
         }
+
     }
 
 
