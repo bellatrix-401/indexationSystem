@@ -16,8 +16,11 @@ class Results extends Component {
   }
 
   handleDelete (url) {
-    console.log(url);
-    this.props.deleteUrl(url);
+    const data = JSON.stringify({
+      url: url
+    });
+
+    this.props.deleteUrl(data);
     this.props.findResults();
   }
 

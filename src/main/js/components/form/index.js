@@ -19,12 +19,12 @@ class Form extends Component {
 
     this.state = {
       word: '',
-      url: ''
+      url: '',
+      waiting: false
     };
 
     this.onChangeText = this.onChangeText.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   onChangeText (e) {
@@ -35,17 +35,36 @@ class Form extends Component {
   handleSubmit (e) {
     e.preventDefault();
 
-    const data = JSON.stringify(this.state);
+    this.setState({ waiting: true });
+
+    const data = JSON.stringify({
+      word: this.state.word, 
+      url: this.state.url
+    });
 
     check(data)
-      .then(res => alert('The URL has been'+res))
+      .then(res => {
+        alert('The URL has been '+res.toUpperCase());
+        this.setState({ 
+          word: '',
+          url: '',
+          waiting: false 
+        });
+      })
   }
 
   render () {
+    const { word } = this.state;
+    const { url } = this.state;
+    const { waiting } = this.state;
+
     return (
       <Page 
         onChangeText={this.onChangeText}
         handleSubmit={this.handleSubmit}
+        word={word}
+        url={url}
+        waiting={waiting}
       />
     );
   }

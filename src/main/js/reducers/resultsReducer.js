@@ -17,7 +17,7 @@ export default function resultsReducer(state = initialState, action) {
     case types.DELETE_URL:
       return {
         ...state,
-        urls: [...state.urls.filter(item=>item.url!==action.payload)]
+        urls: [...state.urls.filter(item=>item.url!==action.payload.url)]
       }
 
     

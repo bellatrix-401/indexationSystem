@@ -17,20 +17,23 @@ export const findResults = () => (
   }
 )
 
-export const deleteUrl = (url) => (
+export const deleteUrl = (dataDel) => (
   (dispatch) => {
     return axios.delete(localhostURL, {
-      urls: url
-    },{
+      data: dataDel,
       headers: {
         'content-Type': 'application/json'
-      }
-    }).then(response => {
-      dispatch ({
-        type: types.DELETE_URL,
-        payload: url,
-      });
+      },
     })
+      .then(response => {
+        dispatch ({
+          type: types.DELETE_URL,
+          payload: dataDel,
+        });
+      })
+      .catch(response => {
+        console.log(response)
+      })
   }
 )
 

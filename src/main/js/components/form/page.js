@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Paper, Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import AppBar from '../appBar';
 
 function Page (props) {
@@ -9,7 +10,10 @@ function Page (props) {
 
   const {
     onChangeText,
-    handleSubmit
+    handleSubmit,
+    word,
+    url,
+    waiting
   } = props;
 
   return (
@@ -26,6 +30,7 @@ function Page (props) {
               className={classes.field}
               label="URL"
               id="url"
+              value={url}
               onChange={(e) => onChangeText(e)}
             />
           </div>
@@ -35,15 +40,21 @@ function Page (props) {
               className={classes.field}
               label="Word"
               id="word"
+              value={word}
               onChange={(e) => onChangeText(e)}
               inputProps={{
                 maxLength: 15
               }}
             />
           </div>
-          <Button className={classes.myButton} type="submit">
-            Search
-          </Button>
+          {waiting ?
+            <CircularProgress className={classes.itemLoader} />
+          :
+            <Button className={classes.myButton} type="submit">
+              Search
+            </Button>
+          }
+          
         </form>
       </Paper>
     </Fragment>
@@ -73,5 +84,8 @@ const useStyles = makeStyles(theme => ({
   },
   field: {
     width: 500
+  },
+  itemLoader: {
+    margin: 20
   }
 }));
