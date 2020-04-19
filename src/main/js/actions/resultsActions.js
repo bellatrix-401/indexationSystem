@@ -2,18 +2,33 @@ import axios from 'axios';
 import { localhostURL } from '../config';
 
 export const types = {
-  FIND_RESULTS: 'FIND_RESULTS',
-  DELETE_URL: 'DELETE_URL'
+  SET_RESULTS: 'SET_RESULTS',
+  SET_DELETE_URL: 'SET_DELETE_URL'
 };
 
-export const findResults = () => (
+export function setResults (payload) {
+  return {
+    type: types.SET_RESULTS,
+    payload
+  }
+}
+
+export function setDeleteUrl (payload) {
+  return {
+    type: types.SET_DELETE_URL,
+    payload
+  }
+}
+
+export const getResults = () => (
   (dispatch) => {
-    return axios.get(localhostURL).then(response => {
-      dispatch ({
-        type: types.FIND_RESULTS,
-        payload: response.data,
-      });
-    })
+    return axios.get(localhostURL)
+      .then(response => {
+        dispatch (setResults(response.data));
+      })
+      .catch(err => {
+        dispatch (setResults());
+      })
   }
 )
 
@@ -25,16 +40,12 @@ export const deleteUrl = (dataDel) => (
         'content-Type': 'application/json'
       },
     })
-      .then(response => {
-        dispatch ({
-          type: types.DELETE_URL,
-          payload: dataDel,
-        });
+      .then(response => { 
+        dispatch (setDeleteUrl(dataDel));
       })
       .catch(response => {
-        console.log(response)
+        dispatch (setDeleteUrl());
       })
   }
 )
-
 

@@ -11,9 +11,11 @@ function Page (props) {
   const {
     onChangeText,
     handleSubmit,
+    validateUrl,
     word,
     url,
-    waiting
+    waiting,
+    validUrl,
   } = props;
 
   return (
@@ -32,6 +34,9 @@ function Page (props) {
               id="url"
               value={url}
               onChange={(e) => onChangeText(e)}
+              onBlur={() => validateUrl()}
+              error={!validUrl}
+              helperText={validUrl ? '' : 'Please insert a valid URL'}
             />
           </div>
           <div>
@@ -50,7 +55,11 @@ function Page (props) {
           {waiting ?
             <CircularProgress className={classes.itemLoader} />
           :
-            <Button className={classes.myButton} type="submit">
+            <Button 
+              className={classes.myButton} 
+              type="submit"
+              disabled={!validUrl}
+            >
               Search
             </Button>
           }
@@ -80,10 +89,11 @@ const useStyles = makeStyles(theme => ({
     height: 45,
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px #ACB5BE',
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0),
   },
   field: {
-    width: 500
+    width: 500,
+    margin: '20px 0'
   },
   itemLoader: {
     margin: 20

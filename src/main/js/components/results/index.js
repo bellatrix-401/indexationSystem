@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findResults, deleteUrl } from '../../actions/resultsActions';
+import { getResults, deleteUrl } from '../../actions/resultsActions';
 import Page from './page';
 
 class Results extends Component {
@@ -12,7 +12,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    this.props.findResults();
+    this.props.getResults();
   }
 
   handleDelete (url) {
@@ -21,7 +21,7 @@ class Results extends Component {
     });
 
     this.props.deleteUrl(data);
-    this.props.findResults();
+    this.props.getResults();
   }
 
   render () {
@@ -43,4 +43,4 @@ const mapStateToProps =  (state) => {
   }
 }
 
-export default connect(mapStateToProps, {findResults, deleteUrl})(Results);
+export default connect(mapStateToProps, {getResults, deleteUrl})(Results);

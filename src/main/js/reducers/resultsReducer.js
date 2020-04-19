@@ -8,13 +8,13 @@ export default function resultsReducer(state = initialState, action) {
   
   switch (action.type) {
 
-    case types.FIND_RESULTS:
+    case types.SET_RESULTS:
       return { 
         ...state,
         urls: action.payload
       }
     
-    case types.DELETE_URL:
+    case types.SET_DELETE_URL:
       return {
         ...state,
         urls: [...state.urls.filter(item=>item.url!==action.payload.url)]

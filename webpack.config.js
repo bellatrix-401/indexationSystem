@@ -10,7 +10,6 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-
   /*devServer: {
     hot: true,
     contentBase: './',

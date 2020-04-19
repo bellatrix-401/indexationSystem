@@ -16,14 +16,12 @@ import {
 
 
 function Page (props) {
+  const classes = useStyles();
+
   const {
     results,
     handleDelete
   } = props;
-
-  console.log(results)
-
-  const classes = useStyles();
 
   return (
     <Fragment>
