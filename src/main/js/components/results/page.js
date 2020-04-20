@@ -36,24 +36,34 @@ function Page (props) {
               <TableCell align="center">Actions</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {results.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.id}</TableCell>
-                <TableCell>{item.url}</TableCell>
-                <TableCell>
-                  <Button 
-                    color="secondary"
-                    className={classes.button}
-                    onClick={() => handleDelete(item.url)}
-                    startIcon={<DeleteIcon />}
-                  > 
-                    Delete
-                  </Button>
+          {results ?
+            <TableBody>
+              {results.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell align="center">{item.id}</TableCell>
+                  <TableCell>{item.url}</TableCell>
+                  <TableCell align="center">
+                    <Button 
+                      color="secondary"
+                      className={classes.button}
+                      onClick={() => handleDelete(item.url)}
+                      startIcon={<DeleteIcon />}
+                    > 
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          :
+            <TableBody>
+              <TableRow>
+                <TableCell align="center" colSpan={3} >
+                  No records available
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
+            </TableBody>
+          }
         </Table>
       </TableContainer>
     </Fragment>
