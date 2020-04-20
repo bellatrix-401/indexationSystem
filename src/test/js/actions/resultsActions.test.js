@@ -18,12 +18,10 @@ const payload = {test: "test"};
 describe('Actions', () => {
   
     beforeEach(function () {
-      // import and pass your custom axios instance to this method
       moxios.install()
     })
 
     afterEach(function () {
-      // import and pass your custom axios instance to this method
       moxios.uninstall()
     })
 
@@ -62,6 +60,68 @@ describe('Actions', () => {
       return store.dispatch(getResults()).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
+    })
 
+    it('Test getResults(word, url) Failed', () => {
+      const store = mockstore({});
+
+      moxios.stubRequest(localhostURL, {
+        status: 401,
+        response: null
+      })
+
+      const expectedActions = [
+        {
+          "type": types.SET_RESULTS,
+          "payload": undefined
+        }
+      ];
+
+      return store.dispatch(getResults()).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    })
+
+    it('Test deleteUrl(url) Success', () => {
+      const store = mockstore({});
+      const request = {url: 'http://google.com'};
+
+      moxios.stubRequest(localhostURL, request, {
+        status: 200,
+        response: request
+      })
+
+      const expectedActions = [
+        {
+          "type": types.SET_DELETE_URL,
+          "payload": request
+        }
+      ];
+
+      return store.dispatch(deleteUrl(request)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    })
+
+    it('Test deleteUrl(url) Failed', () => {
+      const store = mockstore({});
+      const request = {url: 'http://google.com'};
+
+      moxios.stubRequest(localhostURL, request, {
+        status: 401,
+        response: undefined
+      })
+
+      const expectedActions = [
+        {
+          "type": types.SET_DELETE_URL,
+          response: undefined,
+          payload: request
+        }
+      ];
+
+      return store.dispatch(deleteUrl(request)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
     })
 })
