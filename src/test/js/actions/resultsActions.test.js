@@ -1,4 +1,4 @@
-import mockstoreConf from 'redux-mock-store';
+import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import { localhostURL } from '../../../main/js/config';
@@ -12,7 +12,7 @@ import {
 
 const expect = global.expect;
 const middlewares = [thunk];
-const mockstore = mockstoreConf(middlewares);
+const mockstore = configureMockStore(middlewares);
 const payload = {test: "test"};
 
 describe('Actions', () => {
@@ -84,21 +84,22 @@ describe('Actions', () => {
 
     it('Test deleteUrl(url) Success', () => {
       const store = mockstore({});
-      const request = {url: 'http://google.com'};
+      const url = JSON.stringify({url: 'http://google.com'});
+      const payload = 'http://google.com';
 
-      moxios.stubRequest(localhostURL, request, {
+      moxios.stubRequest(localhostURL, {
         status: 200,
-        response: request
+        response: url
       })
 
       const expectedActions = [
         {
           "type": types.SET_DELETE_URL,
-          "payload": request
+          "payload": payload
         }
       ];
 
-      return store.dispatch(deleteUrl(request)).then(() => {
+      return store.dispatch(deleteUrl(url)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     })
@@ -107,7 +108,8 @@ describe('Actions', () => {
       const store = mockstore({});
       const request = {url: 'http://google.com'};
 
-      moxios.stubRequest(localhostURL, request, {
+
+      moxios.stubRequest(localhostURL, {
         status: 401,
         response: undefined
       })
@@ -115,8 +117,7 @@ describe('Actions', () => {
       const expectedActions = [
         {
           "type": types.SET_DELETE_URL,
-          response: undefined,
-          payload: request
+          payload: undefined
         }
       ];
 

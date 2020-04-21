@@ -56,10 +56,12 @@ class Form extends Component {
   }
 
   render () {
-    const { word } = this.state;
-    const { url } = this.state;
-    const { waiting } = this.state;
-    const {validUrl} = this.state;
+    const { 
+      word, 
+      url, 
+      waiting, 
+      validUrl 
+    } = this.state;
 
     return (
       <Page 

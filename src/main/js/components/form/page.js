@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import CssBaseLine from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Paper, Grid } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -19,7 +20,8 @@ function Page (props) {
   } = props;
 
   return (
-    <Fragment>
+    <Fragment className={classes.body}>
+      <CssBaseLine />
       <AppBar />
       <Paper className={classes.paper}>
         <form 
@@ -73,10 +75,14 @@ function Page (props) {
 export default Page;
 
 const useStyles = makeStyles(theme => ({
+  body: {
+    margin: 0
+  },
   paper: {
     display: 'flex',
     justifyContent: 'center',
-    height: '100vh'
+    height: '100vh',
+    margin: 0
   },
   form: {
     marginTop: theme.spacing(8)

@@ -21,7 +21,6 @@ class Results extends Component {
     });
 
     this.props.deleteUrl(data);
-    this.props.getResults();
   }
 
   render () {

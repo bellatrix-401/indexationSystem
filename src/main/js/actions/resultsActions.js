@@ -41,7 +41,8 @@ export const deleteUrl = (dataDel) => (
       },
     })
       .then(response => { 
-        dispatch (setDeleteUrl(dataDel));
+        const { url } = JSON.parse(dataDel);
+        dispatch (setDeleteUrl(url));
       })
       .catch(response => {
         dispatch (setDeleteUrl());
