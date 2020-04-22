@@ -24,46 +24,9 @@ export default function resultsReducer(state, action) {
     }
 
     default: {
-      newState.urls = initialState;
+      newState.urls = initialState.urls;
     }
   }
 
   return newState;
 }
-
-
-
-
-/*
-
-const initialState = {
-  urls: []
-};
-
-export default function resultsReducer(state = initialState, action) {
-  
-  switch (action.type) {
-
-    case types.SET_RESULTS:
-      return { 
-        ...state,
-        urls: action.payload
-      }
-    
-    case types.SET_DELETE_URL:
-      console.log(action.payload)
-      return {
-        //...state,
-        urls: state.urls.filter(
-          item => item.url !== action.payload.url
-        )
-      }
-
-    
-  
-    default:
-      return { ...state }
-  }
-}
-
-*/

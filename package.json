@@ -1,12 +1,12 @@
 {
-  "name": "IndexationSystemFront",
+  "name": "indexationsystemfront",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --watch",
     "build": "webpack --mode=production",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,8 @@
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "file-loader": "^6.0.0",
     "jest": "^25.3.0",
     "moxios": "^0.4.0",
@@ -30,10 +32,16 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"
   },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/test/js/config.js"
+    ]
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
+    "expect": "^25.4.0",
     "html-webpack-plugin": "^4.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

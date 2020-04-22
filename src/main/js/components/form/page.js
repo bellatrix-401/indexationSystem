@@ -3,7 +3,7 @@ import CssBaseLine from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Paper, Grid } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import AppBar from '../appBar';
+import NavBar from '../navBar';
 
 function Page (props) {
 
@@ -22,7 +22,7 @@ function Page (props) {
   return (
     <Fragment className={classes.body}>
       <CssBaseLine />
-      <AppBar />
+      <NavBar />
       <Paper className={classes.paper}>
         <form 
           className={classes.form} 

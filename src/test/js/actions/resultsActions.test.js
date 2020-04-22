@@ -83,7 +83,7 @@ describe('Actions', () => {
     })
 
     it('Test deleteUrl(url) Success', () => {
-      const store = mockstore({});
+      const store = mockstore({urls:[]});
       const url = JSON.stringify({url: 'http://google.com'});
       const payload = 'http://google.com';
 
@@ -105,7 +105,7 @@ describe('Actions', () => {
     })
 
     it('Test deleteUrl(url) Failed', () => {
-      const store = mockstore({});
+      const store = mockstore({urls:[]});
       const request = {url: 'http://google.com'};
 
 

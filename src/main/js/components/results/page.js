@@ -3,7 +3,7 @@ import CssBaseLine from '@material-ui/core/CssBaseline'; // quita conflictos de 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
-import AppBar from '../appBar';
+import NavBar from '../navBar';
 import { 
   TableRow, 
   TableContainer, 
@@ -23,10 +23,12 @@ function Page (props) {
     handleDelete
   } = props;
 
+  const records = results.length !== 0;
+
   return (
     <Fragment>
       <CssBaseLine />
-      <AppBar />
+      <NavBar />
       <TableContainer className={classes.paper} component={Paper}>
         <Table className={classes.table} size="small" aria-label="a dense table">
           <TableHead>
@@ -36,8 +38,8 @@ function Page (props) {
               <TableCell align="center">Actions</TableCell>
             </TableRow>
           </TableHead>
-          {results ?
-            <TableBody>
+          {records ?
+            <TableBody className="results-table">
               {results.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell align="center">{item.id}</TableCell>
@@ -56,7 +58,7 @@ function Page (props) {
               ))}
             </TableBody>
           :
-            <TableBody>
+            <TableBody className="empty-message">
               <TableRow>
                 <TableCell align="center" colSpan={3} >
                   No records available

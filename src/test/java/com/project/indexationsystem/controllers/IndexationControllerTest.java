@@ -31,7 +31,7 @@ public class IndexationControllerTest {
     private NewsService service;
 
     @Test
-    public void emptyNews_whenGetAll_thenReturnNoContent() throws Exception {
+    public void emptyNewsWhenGetAllThenReturnNoContent() throws Exception {
         List<News> allNews = new ArrayList<News>();
         
         when(service.getAll()).thenReturn(allNews);
@@ -42,7 +42,7 @@ public class IndexationControllerTest {
     }
 
     @Test
-    public void givenNews_whenGetAll_thenReturnJson() throws Exception {
+    public void givenNewsWhenGetAllThenReturnJson() throws Exception {
         News news = new News("http://notasweb.com");
         List<News> allNews = new ArrayList<News>();
         allNews.add(news);
@@ -56,7 +56,7 @@ public class IndexationControllerTest {
     }
 
     @Test
-    public void givenUrl_whenCheck_thenInvalidUrl() throws Exception {
+    public void givenUrlWhenCheckThenInvalidUrl() throws Exception {
 
         String body = "{\"url\":\"something\", \"word\":\"some\"}";
 
@@ -69,7 +69,7 @@ public class IndexationControllerTest {
     }
 
     @Test
-    public void givenUrl_whenDelete_thenReturnOk() throws Exception {
+    public void givenUrlWhenDeleteThenReturnOk() throws Exception {
 
         String url = "{\"url\":\"http:something\"}";
 
@@ -84,7 +84,7 @@ public class IndexationControllerTest {
     }
 
     @Test
-    public void givenUrl_whenDelete_thenReturnNoContent() throws Exception {
+    public void givenUrlWhenDeleteThenReturnNoContent() throws Exception {
 
         String url = "{\"url\":\"http:something\"}";
 

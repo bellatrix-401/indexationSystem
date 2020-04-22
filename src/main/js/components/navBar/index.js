@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Page from './page';
 
-class AppBar extends Component {
+class NavBar extends Component {
 
   render () {
 
@@ -11,4 +11,4 @@ class AppBar extends Component {
   }
 }
 
-export default AppBar;
+export default NavBar;

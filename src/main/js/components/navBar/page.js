@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 
-export default function ButtonAppBar(props) {
+export default function NavBar (props) {
   const classes = useStyles();
 
   return (
@@ -24,7 +24,6 @@ export default function ButtonAppBar(props) {
               Ver Todos
             </Link>
           </Button>
-          
           <Button color="inherit">
             <Link className={classes.links} to="/">
               Agregar
