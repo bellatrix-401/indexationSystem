@@ -12,18 +12,22 @@ import java.util.List;
 public class NewsService {
 
     @Autowired
-    private NewsRepository newsData;
+    private NewsRepository newsRepository;
+
+    public NewsService(NewsRepository newsRepository) {
+        this.newsRepository = newsRepository;
+    }
 
     public List<News> getAll() {
-        return (List<News>)newsData.findAll();
+        return (List<News>)newsRepository.findAll();
     }
 
     public boolean save(News url) {
-        News index = newsData.findByUrl(url.getUrl());
+        News index = newsRepository.findByUrl(url.getUrl());
         News data = null;
         
         if (index == null) {
-            data = newsData.save(url);
+            data = newsRepository.save(url);
         } else {
             return true;
         }
@@ -36,10 +40,10 @@ public class NewsService {
     }
 
     public Boolean delete(String url) {
-        News indexDel = newsData.findByUrl(url);
+        News indexDel = newsRepository.findByUrl(url);
 
         if (indexDel != null) {
-            newsData.delete(indexDel);
+            newsRepository.delete(indexDel);
             return true;
         } else {
             return false;

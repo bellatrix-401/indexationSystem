@@ -19,24 +19,16 @@ public class News {
     public News() {
     }
 
-    public Long getId() {
-        return id;
+    public News(String url) {
+        this.url = url;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public News(String url) {
-        this.url = url;
-    }
-    
 }

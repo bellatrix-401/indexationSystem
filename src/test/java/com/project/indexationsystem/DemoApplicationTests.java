@@ -8,4 +8,9 @@ class DemoApplicationTests {
 	void contextLoads (){
 	}
 
+	@Test
+	public void main() {
+		DemoApplication.main(new String[] {});
+	}
+
 }
