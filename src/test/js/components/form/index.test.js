@@ -4,6 +4,7 @@ import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import FormApp from '../../../../main/js/components/form';
+import Page from '../../../../main/js/components/form';
 
 Enzyme.configure({ adapter: new Adapter() });
 

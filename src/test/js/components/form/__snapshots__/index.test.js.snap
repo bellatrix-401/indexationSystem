@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Results component Test Snapshot Form 1`] = `
-Array [
+<div
+  className="makeStyles-body-1"
+>
   <div
     className="makeStyles-root-7"
   >
@@ -86,7 +88,7 @@ Array [
         </button>
       </div>
     </header>
-  </div>,
+  </div>
   <div
     className="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
   >
@@ -198,6 +200,6 @@ Array [
         </span>
       </button>
     </form>
-  </div>,
-]
+  </div>
+</div>
 `;

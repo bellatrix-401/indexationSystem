@@ -20,7 +20,7 @@ function Page (props) {
   } = props;
 
   return (
-    <Fragment className={classes.body}>
+    <div className={classes.body}>
       <CssBaseLine />
       <NavBar />
       <Paper className={classes.paper}>
@@ -68,7 +68,7 @@ function Page (props) {
           
         </form>
       </Paper>
-    </Fragment>
+    </div>
   );
 }
 

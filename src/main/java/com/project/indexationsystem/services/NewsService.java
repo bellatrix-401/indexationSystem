@@ -34,9 +34,9 @@ public class NewsService {
         
         if (data != null) {
             return true;
-        } else {
-            return false;
-        }   
+        }
+        
+        return false;
     }
 
     public Boolean delete(String url) {

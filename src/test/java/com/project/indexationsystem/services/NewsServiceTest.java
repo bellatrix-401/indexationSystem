@@ -25,7 +25,17 @@ public class NewsServiceTest {
   @Test
   public void saveTest() {
     News newsData = new News(url);
-    newsRepository.save(newsData);
+    NewsService newsService = new NewsService(newsRepository);
+    newsService.save(newsData);
+
+    assertEquals(newsRepository.count(), 1);
+  }
+
+  @Test
+  public void saveTestRepeited() {
+    News newsData = new News(url);
+    NewsService newsService = new NewsService(newsRepository);
+    newsService.save(newsData);
 
     assertEquals(newsRepository.count(), 1);
   }

@@ -1,10 +1,12 @@
 package com.project.indexationsystem.controllers;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import com.project.indexationsystem.entity.News;
+import com.project.indexationsystem.model.IndexDir;
 import com.project.indexationsystem.services.NewsService;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
@@ -66,6 +68,23 @@ public class IndexationControllerTest {
             .content(body))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.state", is("rejected")));
+    }
+
+    @Test
+    public void givenUrlWhenCheckThenCorrectUrl() throws Exception {
+
+        String body = "{\"url\":\"https://stackoverflow.com\", \"word\":\"some\"}";
+        IndexDir data = new IndexDir();
+        data.setUrl("https://stackoverflow.com");
+        data.setWord("someword");
+
+        when(service.save(new News(data.getUrl()))).thenReturn(true);
+
+        mvc.perform(post("/api/content/check")
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .content(body))
+                .andExpect(status().isOk());
     }
 
     @Test
