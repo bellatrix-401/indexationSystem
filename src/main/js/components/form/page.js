@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import CssBaseLine from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField, Button, Paper, Grid } from '@material-ui/core';
+import { TextField, Button, Paper } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import NavBar from '../navBar';
 
@@ -27,6 +27,7 @@ function Page (props) {
         <form 
           className={classes.form} 
           onSubmit={(e) => handleSubmit(e)}
+          data-test="form"
         >
           <div>
             <TextField
@@ -39,6 +40,7 @@ function Page (props) {
               onBlur={() => validateUrl()}
               error={!validUrl}
               helperText={validUrl ? '' : 'Please insert a valid URL'}
+              data-test="url"
             />
           </div>
           <div>
@@ -52,6 +54,7 @@ function Page (props) {
               inputProps={{
                 maxLength: 15
               }}
+              data-test="word"
             />
           </div>
           {waiting ?
@@ -61,6 +64,7 @@ function Page (props) {
               className={classes.myButton} 
               type="submit"
               disabled={!validUrl}
+              data-test="submitButton"
             >
               Search
             </Button>

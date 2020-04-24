@@ -86,4 +86,4 @@ function check (data) {
       .catch(e => console.log(e))
 }
 
-export default (Form);
+export default Form;

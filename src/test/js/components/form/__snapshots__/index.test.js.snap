@@ -29,7 +29,7 @@ exports[`Results component Test Snapshot Form 1`] = `
           Indexation System
         </h6>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          className="MuiButtonBase-root MuiButton-root MuiButton-text button MuiButton-colorInherit"
           disabled={false}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -58,7 +58,7 @@ exports[`Results component Test Snapshot Form 1`] = `
           </span>
         </button>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          className="MuiButtonBase-root MuiButton-root MuiButton-text button MuiButton-colorInherit"
           disabled={false}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -94,11 +94,13 @@ exports[`Results component Test Snapshot Form 1`] = `
   >
     <form
       className="makeStyles-form-3"
+      data-test="form"
       onSubmit={[Function]}
     >
       <div>
         <div
           className="MuiFormControl-root MuiTextField-root makeStyles-field-5"
+          data-test="url"
         >
           <label
             className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -139,6 +141,7 @@ exports[`Results component Test Snapshot Form 1`] = `
       <div>
         <div
           className="MuiFormControl-root MuiTextField-root makeStyles-field-5"
+          data-test="word"
         >
           <label
             className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -178,6 +181,7 @@ exports[`Results component Test Snapshot Form 1`] = `
       </div>
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-myButton-4"
+        data-test="submitButton"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}

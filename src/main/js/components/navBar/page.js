@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 
-export default function NavBar (props) {
+export default function Page (props) {
   const classes = useStyles();
 
   return (
@@ -19,12 +19,12 @@ export default function NavBar (props) {
           <Typography variant="h6" className={classes.title}>
             Indexation System
           </Typography>
-          <Button color="inherit">
+          <Button className="button" color="inherit">
             <Link className={classes.links} to="/all">
               Ver Todos
             </Link>
           </Button>
-          <Button color="inherit">
+          <Button className="button" color="inherit">
             <Link className={classes.links} to="/">
               Agregar
             </Link>

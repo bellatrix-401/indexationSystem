@@ -26,7 +26,7 @@ exports[`NavBar component Test Snapshot navBar 1`] = `
         Indexation System
       </h6>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text button MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}
@@ -55,7 +55,7 @@ exports[`NavBar component Test Snapshot navBar 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text button MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}

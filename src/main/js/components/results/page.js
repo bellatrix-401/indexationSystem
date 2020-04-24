@@ -26,7 +26,7 @@ function Page (props) {
   const records = results.length !== 0;
 
   return (
-    <Fragment>
+    <div>
       <CssBaseLine />
       <NavBar />
       <TableContainer className={classes.paper} component={Paper}>
@@ -68,7 +68,7 @@ function Page (props) {
           }
         </Table>
       </TableContainer>
-    </Fragment>
+    </div>
   );
 }
 
