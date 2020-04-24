@@ -49,22 +49,5 @@ describe('Results component Test', () => {
   it('Snapshot Results', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
-
-  /*
-  it('Should handleDelete()', () => {
-    const data = JSON.stringify({
-      url: "http://google.com"
-    });
-    const component = shallow(
-      <Results 
-        deleteUrl={deleteUrl}
-      />
-    );
-    const instance = component.instance();
-    
-
-    instance.handleDelete(data);
-    expect(deleteUrl).toBeCalled();
-  });*/
   
 })
