@@ -128,6 +128,7 @@ exports[`Results component Test Snapshot Results 1`] = `
       </thead>
       <tbody
         className="MuiTableBody-root results-table"
+        data-test="tableResults"
         role={null}
       >
         <tr
@@ -152,6 +153,7 @@ exports[`Results component Test Snapshot Results 1`] = `
           >
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-3 MuiButton-textSecondary"
+              data-test="buttonDelete"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}

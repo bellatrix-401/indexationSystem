@@ -39,7 +39,7 @@ function Page (props) {
             </TableRow>
           </TableHead>
           {records ?
-            <TableBody className="results-table">
+            <TableBody className="results-table" data-test="tableResults">
               {results.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell align="center">{item.id}</TableCell>
@@ -50,6 +50,7 @@ function Page (props) {
                       className={classes.button}
                       onClick={() => handleDelete(item.url)}
                       startIcon={<DeleteIcon />}
+                      data-test="buttonDelete"
                     > 
                       Delete
                     </Button>
@@ -58,7 +59,7 @@ function Page (props) {
               ))}
             </TableBody>
           :
-            <TableBody className="empty-message">
+            <TableBody className="empty-message" data-test="tableEmpty">
               <TableRow>
                 <TableCell align="center" colSpan={3} >
                   No records available
