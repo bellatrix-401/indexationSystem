@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+
+  docker-mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: docker-mysql
+    environment:
+      MYSQL_DATABASE: db_news
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - sql-spring:/var/lib/mysql
+    networks: 
+      - indexationsystem-network
+
+  nginx:
+    image: nginx:latest
+    container_name: indexationsystem-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on: 
+      - indexationsystem
+    networks:
+      - indexationsystem-network
+
+  indexationsystem:
+    image: ysisbel/springboot-isystem:1.0-SNAPSHOT
+    restart: on-failure
+    expose:
+      - "8080"
+    depends_on:
+      - docker-mysql
+    networks: 
+      - indexationsystem-network
+
+networks:
+  indexationsystem-network:
+    driver: bridge
+
+volumes: 
+  sql-spring:

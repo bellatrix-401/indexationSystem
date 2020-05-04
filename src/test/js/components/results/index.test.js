@@ -89,5 +89,23 @@ describe('Results component Test', () => {
     expect(wrapper).toEqual({});
     expect(wrapper2).toBeTruthy();
   });
+
+  it('Should handleDelete()', () => {
+    const data = JSON.stringify({
+      url: "http://google.com"
+    });
+
+    const component = shallow(
+      <Results 
+        getResults={getResults}
+        deleteUrl={deleteUrl}
+      />
+    );
+    const instance = component.instance();
+    
+
+    instance.handleDelete(data);
+    expect(deleteUrl).toBeCalled();
+  });
   
 });

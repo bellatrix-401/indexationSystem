@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --watch",
     "build": "webpack --mode=production",
-    "test": "jest --coverage"
+    "test": "jest --coverage --colors"
   },
   "keywords": [],
   "author": "",

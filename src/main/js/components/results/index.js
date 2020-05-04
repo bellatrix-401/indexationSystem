@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getResults, deleteUrl } from '../../actions/resultsActions';
 import Page from './page';
 
-class Results extends Component {
+export class Results extends Component {
 
   constructor(props) {
     super(props);
