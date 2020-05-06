@@ -9,6 +9,7 @@ services:
     environment:
       MYSQL_DATABASE: db_news
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_HOST: docker-mysql
     ports:
       - "3306:3306"
     volumes:
