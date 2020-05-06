@@ -92,7 +92,7 @@ const useStyles = makeStyles({
   paper: {
     display: 'flex',
     justifyContent: 'center',
-    height: '100vh'
+    height: '80vh'
   },
   button: {
     margin: 10,

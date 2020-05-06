@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     display: 'flex',
     justifyContent: 'center',
-    height: '100vh',
+    height: '90vh',
     margin: 0
   },
   form: {

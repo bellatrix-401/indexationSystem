@@ -22,11 +22,22 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
     depends_on: 
-      - indexationsystem
+      - indexationsystem1
+      - indexationsystem2
     networks:
       - indexationsystem-network
 
-  indexationsystem:
+  indexationsystem1:
+    image: ysisbel/springboot-isystem:1.0-SNAPSHOT
+    restart: on-failure
+    expose:
+      - "80"
+    depends_on:
+      - docker-mysql
+    networks: 
+      - indexationsystem-network
+
+  indexationsystem2:
     image: ysisbel/springboot-isystem:1.0-SNAPSHOT
     restart: on-failure
     expose:
