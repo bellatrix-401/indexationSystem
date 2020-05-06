@@ -3,7 +3,7 @@
 exports[`Results component Test Snapshot Results 1`] = `
 <div>
   <div
-    className="makeStyles-root-4"
+    className="makeStyles-root-5"
   >
     <header
       className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
@@ -13,7 +13,7 @@ exports[`Results component Test Snapshot Results 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root makeStyles-menuButton-5"
+          className="MuiSvgIcon-root makeStyles-menuButton-6"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -22,7 +22,7 @@ exports[`Results component Test Snapshot Results 1`] = `
           />
         </svg>
         <h6
-          className="MuiTypography-root makeStyles-title-6 MuiTypography-h6"
+          className="MuiTypography-root makeStyles-title-7 MuiTypography-h6"
         >
           Indexation System
         </h6>
@@ -47,7 +47,7 @@ exports[`Results component Test Snapshot Results 1`] = `
             className="MuiButton-label"
           >
             <a
-              className="makeStyles-links-7"
+              className="makeStyles-links-8"
               href="/all"
               onClick={[Function]}
             >
@@ -76,7 +76,7 @@ exports[`Results component Test Snapshot Results 1`] = `
             className="MuiButton-label"
           >
             <a
-              className="makeStyles-links-7"
+              className="makeStyles-links-8"
               href="/"
               onClick={[Function]}
             >
@@ -195,5 +195,8 @@ exports[`Results component Test Snapshot Results 1`] = `
       </tbody>
     </table>
   </div>
+  <footer
+    className="makeStyles-footer-4"
+  />
 </div>
 `;

@@ -43,17 +43,23 @@ describe('Actions', () => {
 
     it('Test getResults(word, url) Success', () => {
       const store = mockstore({});
-      const response = [{id: 1, url: 'http://google.com'}];
+      const responseData = [{id: 1, url: 'http://google.com'}];
+      const responseServer = "0.0.0.1";
 
       moxios.stubRequest(localhostURL, {
+        headers: {"x-upstream" : responseServer},
         status: 200,
-        response: response
+        response: responseData
       })
 
       const expectedActions = [
         {
           "type": types.SET_RESULTS,
-          "payload": response
+          "payload": responseData
+        },
+        {
+          "type": types.SET_SERVER,
+          "payload": responseServer
         }
       ];
 

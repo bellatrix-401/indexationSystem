@@ -1,7 +1,8 @@
 import { types } from '../actions/resultsActions';
 
 const initialState = {
-  urls: []
+  urls: [],
+  server: undefined
 };
 
 export default function resultsReducer(state, action) {
@@ -19,12 +20,18 @@ export default function resultsReducer(state, action) {
     }
     
     case types.SET_DELETE_URL: {
-      newState.urls = state.urls.filter(item => item.url !== action.payload)
+      newState.urls = state.urls.filter(item => item.url !== action.payload);
+      break;
+    }
+
+    case types.SET_SERVER: {
+      newState.server = action.payload;
       break;
     }
 
     default: {
       newState.urls = initialState.urls;
+      newState.server = initialState.server;
     }
   }
 

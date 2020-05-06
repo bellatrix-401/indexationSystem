@@ -25,20 +25,22 @@ export class Results extends Component {
 
   render () {
 
-    const { results } = this.props;
+    const { results, server } = this.props;
 
     return (
-      <Page 
-        results={results}
-        handleDelete={this.handleDelete}
-      />
+        <Page 
+          results={results}
+          server={server}
+          handleDelete={this.handleDelete}
+        />
     );
   }
 }
 
 const mapStateToProps =  (state) => {
   return {
-    results: state.results.urls
+    results: state.results.urls,
+    server: state.results.server
   }
 }
 

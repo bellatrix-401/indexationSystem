@@ -20,6 +20,7 @@ function Page (props) {
 
   const {
     results,
+    server,
     handleDelete
   } = props;
 
@@ -69,6 +70,13 @@ function Page (props) {
           }
         </Table>
       </TableContainer>
+      {server ? 
+        <footer className={classes.footer}>
+          By {server}
+        </footer>
+      :
+        <footer className={classes.footer}></footer>
+      }
     </div>
   );
 }
@@ -89,5 +97,11 @@ const useStyles = makeStyles({
   button: {
     margin: 10,
   },
+  footer: {
+    background: '#ffffff',
+    padding: 20,
+    textAlign: 'left',
+    color: '#828282'
+  }
 });
 

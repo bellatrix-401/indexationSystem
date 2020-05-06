@@ -46,7 +46,12 @@ class Form extends Component {
 
     check(data)
       .then(res => {
-        alert('The URL has been '+res.toUpperCase());
+        if (res.server) {
+          alert('The URL has been '+res.state.toUpperCase() + '. By '+res.server);
+        } else {
+          alert('The URL has been '+res.state.toUpperCase());
+        }
+        
         this.setState({ 
           word: '',
           url: '',
@@ -82,7 +87,13 @@ function check (data) {
     headers: {
       'content-Type': 'application/json'
     }})
-      .then(response => response.data.state)
+      .then(response => {
+        let obj = {
+          state: response.data.state,
+          server: response.headers["x-upstream"]
+        }
+        return obj;
+      })
       .catch(e => console.log(e))
 }
 

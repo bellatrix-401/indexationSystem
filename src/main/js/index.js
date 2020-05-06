@@ -10,7 +10,7 @@ const Root = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={ Form  } />
+        <Route exact path="/" component={ Form } />
         <Route path="/all" component={ Results } />
       </Switch>
     </BrowserRouter>
