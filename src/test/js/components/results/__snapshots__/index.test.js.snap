@@ -24,7 +24,10 @@ exports[`Results component Test Snapshot Results 1`] = `
         <h6
           className="MuiTypography-root makeStyles-title-7 MuiTypography-h6"
         >
-          Indexation System
+          Indexation System  
+          <sub>
+            <i />
+          </sub>
         </h6>
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text button MuiButton-colorInherit"

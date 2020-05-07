@@ -20,6 +20,7 @@ describe('Results component Test', () => {
   let store;
   let getResults;
   let deleteUrl;
+  let getInstanceId;
   
   beforeEach(() => {
 
@@ -31,11 +32,15 @@ describe('Results component Test', () => {
             url: "http://google.com"
           },
         ]
+      },
+      index: {
+        instanceId: 'test',
       }
     });
 
     getResults = jest.fn();
     deleteUrl = jest.fn();
+    getInstanceId = jest.fn();
   })
 
   it('Snapshot Results', () => {

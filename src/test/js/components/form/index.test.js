@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { shallow, render, mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 import renderer from 'react-test-renderer';
 import FormApp from '../../../../main/js/components/form';
 import Page from '../../../../main/js/components/form/page';
@@ -9,9 +12,14 @@ import { regExpUrl } from '../../../../main/js/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
 describe('Results component Test', () => {
 
   let props;
+  let store;
+  let getInstanceId;
 
   beforeEach(() => {
     const props = {
@@ -23,13 +31,23 @@ describe('Results component Test', () => {
       waiting: false,
       validUrl: true,
     }
+    
+    store = mockStore({
+      index: {
+        instanceId: 'test',
+      }
+    });
+
+    getInstanceId = jest.fn();
   });
 
   it('Snapshot Form', () => {
     const form = renderer.create(
-      <MemoryRouter>
-        <FormApp />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <FormApp />
+        </MemoryRouter>
+      </Provider>
     )
 
     expect(form.toJSON()).toMatchSnapshot();

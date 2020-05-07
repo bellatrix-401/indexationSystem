@@ -11,13 +11,17 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 export default function Page (props) {
   const classes = useStyles();
 
+  const {
+    instanceId,
+  } = props;
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <AttachFileIcon className={classes.menuButton} />
           <Typography variant="h6" className={classes.title}>
-            Indexation System
+            Indexation System  <sub><i>{instanceId}</i></sub>
           </Typography>
           <Button className="button" color="inherit">
             <Link className={classes.links} to="/all">
@@ -48,5 +52,9 @@ const useStyles = makeStyles((theme) => ({
   links: {
     color: 'white',
     textDecoration: 'none'
+  },
+  textSub: {
+    fontSize: 12,
+    color: 'floralwhite',
   }
 }));

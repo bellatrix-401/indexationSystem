@@ -10,7 +10,7 @@ services:
       - "3306:3306"
     volumes:
       - sql-spring:/var/lib/mysql
-    networks: 
+    networks:
       - indexationsystem-network
 
   nginx:
@@ -29,6 +29,7 @@ services:
 
   indexationsystem1:
     image: ysisbel/springboot-isystem:1.0-SNAPSHOT
+    container_name: is_1
     restart: on-failure
     expose:
       - "80"
@@ -36,9 +37,15 @@ services:
       - docker-mysql
     networks: 
       - indexationsystem-network
+    environment:
+      MYSQL_HOST: docker-mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_news
+      INSTANCE_ID: is_1
 
   indexationsystem2:
     image: ysisbel/springboot-isystem:1.0-SNAPSHOT
+    container_name: is_2
     restart: on-failure
     expose:
       - "80"
@@ -46,6 +53,11 @@ services:
       - docker-mysql
     networks: 
       - indexationsystem-network
+    environment:
+      MYSQL_HOST: docker-mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_news
+      INSTANCE_ID: is_2
 
 networks:
   indexationsystem-network:
