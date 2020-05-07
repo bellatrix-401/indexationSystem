@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Page from './page';
-import { localhostURL } from '../../config';
+import { localhostURL } from '../../config/paths';
 import { regExpUrl } from '../../constants';
 
 class Form extends Component {

@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { localhostURL } from '../../../main/js/config';
+import { localhostURL } from '../../../main/js/config/paths';
 import { 
   types, 
   setResults, 

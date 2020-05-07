@@ -16,6 +16,8 @@ public class AppViewController {
     @Value("${server.instance.id}")
     private String instanceId;
 
+    /* 
+   
     @GetMapping("/instance")
     @ResponseBody
     public ResponseEntity<Map<String, String>> getIndex() {
@@ -24,4 +26,6 @@ public class AppViewController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+    
+    */
 }

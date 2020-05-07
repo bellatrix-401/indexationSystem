@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +18,10 @@ import com.project.indexationsystem.model.ResponseObject;
 import com.project.indexationsystem.services.NewsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +34,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class IndexationController {
+
+    @Value("${server.instance.id}")
+    private String instanceId;
 
     @Autowired
     private NewsService newsService;
@@ -97,5 +105,12 @@ public class IndexationController {
 
     }
 
+    @GetMapping("/instance")
+    public ResponseEntity<Map<String, String>> getIndex() {
+        Map<String, String> response = new HashMap<>();
+        response.put("instanceId", instanceId); 
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
 }

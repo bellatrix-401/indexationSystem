@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { localhostURL } from '../config';
+import { localhostURL } from '../config/paths';
 
 export const types = {
   SET_RESULTS: 'SET_RESULTS',
