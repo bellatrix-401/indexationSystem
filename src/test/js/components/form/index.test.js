@@ -33,7 +33,7 @@ describe('Results component Test', () => {
     }
     
     store = mockStore({
-      index: {
+      navBar: {
         instanceId: 'test',
       }
     });

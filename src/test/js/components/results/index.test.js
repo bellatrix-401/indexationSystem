@@ -33,7 +33,7 @@ describe('Results component Test', () => {
           },
         ]
       },
-      index: {
+      navBar: {
         instanceId: 'test',
       }
     });
