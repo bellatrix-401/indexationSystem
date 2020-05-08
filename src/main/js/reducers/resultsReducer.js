@@ -30,8 +30,8 @@ export default function resultsReducer(state, action) {
     }
 
     default: {
-      newState.urls = initialState.urls;
-      newState.server = initialState.server;
+      newState.urls = state.urls;
+      newState.server = state.server;
     }
   }
 
