@@ -1,4 +1,4 @@
-import { types } from '../actions/indexActions';
+import { types } from '../actions/navBarActions';
 
 const initialState = {
   instanceId: ''
@@ -19,7 +19,7 @@ export default function resultsReducer(state, action) {
     }
 
     default: {
-      newState.instanceId = initialState.instanceId;
+      newState.instanceId = state.instanceId;
     }
   }
 

@@ -1,13 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import results from '../reducers/resultsReducer';
-import index from '../reducers/indexReducer';
+import navBar from '../reducers/navBarReducer';
 
 const initialState = {};
 
 const reducer = combineReducers ({
   results,
-  index
+  navBar
 });
 
 const store = createStore(reducer, initialState, applyMiddleware(thunk));

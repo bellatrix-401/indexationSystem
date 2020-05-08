@@ -16,7 +16,6 @@ export const getInstanceId = () => (
   (dispatch) => {
     return axios.get(apiUrl+'/instance')
       .then(response => {
-        console.log(response)
         dispatch (setInstanceId(response.data));
       })
       .catch(err => {
