@@ -86,9 +86,9 @@
 			<type>maven-plugin</type>
 		</dependency>
 		<dependency>
-      <groupId>javax.activation</groupId>
-      <artifactId>activation</artifactId>
-    </dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId> 
+		</dependency>
 	</dependencies>
 
 	<build>
