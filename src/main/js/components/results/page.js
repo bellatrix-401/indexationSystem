@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import NavBar from '../navBar';
+import Footer from '../footer';
 import { 
   TableRow, 
   TableContainer, 
@@ -20,7 +21,6 @@ function Page (props) {
 
   const {
     results,
-    server,
     handleDelete
   } = props;
 
@@ -70,13 +70,7 @@ function Page (props) {
           }
         </Table>
       </TableContainer>
-      {server ? 
-        <footer className={classes.footer}>
-          By {server}
-        </footer>
-      :
-        <footer className={classes.footer}></footer>
-      }
+      <Footer />
     </div>
   );
 }
@@ -96,12 +90,6 @@ const useStyles = makeStyles({
   },
   button: {
     margin: 10,
-  },
-  footer: {
-    background: '#ffffff',
-    padding: 20,
-    textAlign: 'left',
-    color: '#828282'
   }
 });
 

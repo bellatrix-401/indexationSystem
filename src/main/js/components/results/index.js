@@ -25,12 +25,11 @@ export class Results extends Component {
 
   render () {
 
-    const { results, server } = this.props;
+    const { results } = this.props;
 
     return (
         <Page 
           results={results}
-          server={server}
           handleDelete={this.handleDelete}
         />
     );
@@ -39,8 +38,7 @@ export class Results extends Component {
 
 const mapStateToProps =  (state) => {
   return {
-    results: state.results.urls,
-    server: state.results.server
+    results: state.results.urls
   }
 }
 

@@ -22,7 +22,7 @@ describe('NavBar component Test', () => {
   beforeEach(() => {
 
     store = mockStore({
-      navBar: {
+      appInfo: {
         instanceId: 'test',
       }
     });

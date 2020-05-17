@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { localhostURL } from '../../../main/js/config/paths';
+import { localhostUrl } from '../../../main/js/config/paths';
 import { 
   types, 
   setResults, 
@@ -44,10 +44,8 @@ describe('Actions', () => {
     it('Test getResults(word, url) Success', () => {
       const store = mockstore({});
       const responseData = [{id: 1, url: 'http://google.com'}];
-      const responseServer = "0.0.0.1";
 
-      moxios.stubRequest(localhostURL, {
-        headers: {"x-upstream" : responseServer},
+      moxios.stubRequest(localhostUrl, {
         status: 200,
         response: responseData
       })
@@ -56,10 +54,6 @@ describe('Actions', () => {
         {
           "type": types.SET_RESULTS,
           "payload": responseData
-        },
-        {
-          "type": types.SET_SERVER,
-          "payload": responseServer
         }
       ];
 
@@ -71,7 +65,7 @@ describe('Actions', () => {
     it('Test getResults(word, url) Failed', () => {
       const store = mockstore({});
 
-      moxios.stubRequest(localhostURL, {
+      moxios.stubRequest(localhostUrl, {
         status: 401,
         response: null
       })
@@ -93,7 +87,7 @@ describe('Actions', () => {
       const url = JSON.stringify({url: 'http://google.com'});
       const payload = 'http://google.com';
 
-      moxios.stubRequest(localhostURL, {
+      moxios.stubRequest(localhostUrl, {
         status: 200,
         response: url
       })
@@ -115,7 +109,7 @@ describe('Actions', () => {
       const request = {url: 'http://google.com'};
 
 
-      moxios.stubRequest(localhostURL, {
+      moxios.stubRequest(localhostUrl, {
         status: 401,
         response: undefined
       })

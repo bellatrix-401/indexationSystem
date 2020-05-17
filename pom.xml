@@ -85,6 +85,10 @@
 			<version>0.8.5</version>
 			<type>maven-plugin</type>
 		</dependency>
+		<dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+    </dependency>
 	</dependencies>
 
 	<build>

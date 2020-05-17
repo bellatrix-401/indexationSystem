@@ -38,6 +38,9 @@ public class IndexationController {
     @Value("${server.instance.id}")
     private String instanceId;
 
+    @Value("${app.project.version}")
+    private String buildVersion;
+
     @Autowired
     private NewsService newsService;
 
@@ -106,9 +109,17 @@ public class IndexationController {
     }
 
     @GetMapping("/instance")
-    public ResponseEntity<Map<String, String>> getIndex() {
+    public ResponseEntity<Map<String, String>> getInstance() {
         Map<String, String> response = new HashMap<>();
         response.put("instanceId", instanceId); 
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/version")
+    public ResponseEntity<Map<String, String>> getVersion() {
+        Map<String, String> response = new HashMap<>();
+        response.put("version", buildVersion); 
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

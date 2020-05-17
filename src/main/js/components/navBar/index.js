@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getInstanceId } from '../../actions/navBarActions';
+import { getInstanceId } from '../../actions/appInfoActions';
 import Page from './page';
 
 class NavBar extends Component {
@@ -23,7 +23,7 @@ class NavBar extends Component {
 
 const mapStateToProps =  (state) => {
   return {
-    instanceId: state.navBar.instanceId
+    instanceId: state.appInfo.instanceId
   }
 }
 

@@ -1,7 +1,8 @@
-import { types } from '../actions/navBarActions';
+import { types } from '../actions/appInfoActions';
 
 const initialState = {
-  instanceId: ''
+  instanceId: '',
+  version: '',
 };
 
 export default function resultsReducer(state, action) {
@@ -18,8 +19,14 @@ export default function resultsReducer(state, action) {
       break;
     }
 
+    case types.SET_APP_VERSION: {
+      newState.version = action.payload;
+      break;
+    }
+
     default: {
       newState.instanceId = state.instanceId;
+      newState.version = state.version;
     }
   }
 

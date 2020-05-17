@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Page from './page';
-import { localhostURL } from '../../config/paths';
+import { localhostUrl } from '../../config/paths';
 import { regExpUrl } from '../../constants';
 
 class Form extends Component {
@@ -79,7 +79,7 @@ class Form extends Component {
 }
 
 function check (data) {
-  return axios.post(localhostURL+'/check', data, {
+  return axios.post(localhostUrl+'/check', data, {
     headers: {
       'content-Type': 'application/json'
     }})

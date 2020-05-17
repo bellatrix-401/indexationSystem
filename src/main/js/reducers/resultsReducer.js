@@ -2,7 +2,6 @@ import { types } from '../actions/resultsActions';
 
 const initialState = {
   urls: [],
-  server: undefined
 };
 
 export default function resultsReducer(state, action) {
@@ -24,14 +23,8 @@ export default function resultsReducer(state, action) {
       break;
     }
 
-    case types.SET_SERVER: {
-      newState.server = action.payload;
-      break;
-    }
-
     default: {
       newState.urls = state.urls;
-      newState.server = state.server;
     }
   }
 

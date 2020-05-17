@@ -33,8 +33,9 @@ describe('Results component Test', () => {
           },
         ]
       },
-      navBar: {
+      appInfo: {
         instanceId: 'test',
+        version: 'test',
       }
     });
 

@@ -33,8 +33,9 @@ describe('Results component Test', () => {
     }
     
     store = mockStore({
-      navBar: {
+      appInfo: {
         instanceId: 'test',
+        version: 'test',
       }
     });
 

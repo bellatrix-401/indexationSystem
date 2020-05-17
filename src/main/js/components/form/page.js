@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Paper } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import NavBar from '../navBar';
+import Footer from '../footer';
 
 function Page (props) {
 
@@ -72,6 +73,7 @@ function Page (props) {
           
         </form>
       </Paper>
+      <Footer />
     </div>
   );
 }

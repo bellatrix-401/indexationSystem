@@ -208,5 +208,12 @@ exports[`Results component Test Snapshot Form 1`] = `
       </button>
     </form>
   </div>
+  <div>
+    <footer
+      className="makeStyles-footer-183"
+    >
+      Version 
+    </footer>
+  </div>
 </div>
 `;

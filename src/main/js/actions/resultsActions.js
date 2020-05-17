@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { localhostURL } from '../config/paths';
+import { localhostUrl } from '../config/paths';
 
 export const types = {
   SET_RESULTS: 'SET_RESULTS',
   SET_DELETE_URL: 'SET_DELETE_URL',
-  SET_SERVER: 'SET_SERVER'
 };
 
 export function setResults (payload) {
@@ -21,19 +20,11 @@ export function setDeleteUrl (payload) {
   }
 }
 
-export function setServer (payload) {
-  return {
-    type: types.SET_SERVER,
-    payload
-  }
-}
-
 export const getResults = () => (
   (dispatch) => {
-    return axios.get(localhostURL)
+    return axios.get(localhostUrl)
       .then(response => {
         dispatch (setResults(response.data));
-        dispatch (setServer(response.headers["x-upstream"]));
       })
       .catch(err => {
         dispatch (setResults());
@@ -43,7 +34,7 @@ export const getResults = () => (
 
 export const deleteUrl = (dataDel) => (
   (dispatch) => {
-    return axios.delete(localhostURL, {
+    return axios.delete(localhostUrl, {
       data: dataDel,
       headers: {
         'content-Type': 'application/json'
