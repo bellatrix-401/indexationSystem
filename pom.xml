@@ -85,11 +85,6 @@
 			<version>0.8.5</version>
 			<type>maven-plugin</type>
 		</dependency>
-		<dependency>
-				<groupId>javax.activation</groupId>
-				<artifactId>javax.activation-api</artifactId>
-				<scope>compile</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -109,6 +104,16 @@
 						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
+
+				<dependencies>
+					<dependency>
+							<groupId>javax.activation</groupId>
+							<artifactId>javax.activation-api</artifactId>
+							<version>1.2.0</version>
+							<scope>compile</scope>
+					</dependency>
+			</dependencies>
+
 				<executions>
 					<execution>
 						<id>build-version</id>
