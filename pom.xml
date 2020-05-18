@@ -17,11 +17,6 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		
-		<sonar.projectName>Indexation System</sonar.projectName>
-		<sonar.projectKey>${project.artifactId}</sonar.projectKey>
-		<sonar.projectVersion>${project.version}</sonar.projectVersion>
-		<sonar.sources>src/main/java, src/main/js</sonar.sources>
 	</properties>
 
 	<dependencies>
