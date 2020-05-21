@@ -70,7 +70,6 @@ function Page (props) {
               Search
             </Button>
           }
-          
         </form>
       </Paper>
       <Footer />
@@ -82,12 +81,13 @@ export default Page;
 
 const useStyles = makeStyles(theme => ({
   body: {
-    margin: 0
+    margin: 0,
+    backgroundColor: 'white',
   },
   paper: {
     display: 'flex',
     justifyContent: 'center',
-    height: '90vh',
+    height: '82vh',
     margin: 0
   },
   form: {

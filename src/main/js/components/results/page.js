@@ -28,9 +28,10 @@ function Page (props) {
 
   return (
     <div>
+    <div>
       <CssBaseLine />
       <NavBar />
-      <TableContainer className={classes.paper} component={Paper}>
+      <TableContainer className={classes.paper}>
         <Table className={classes.table} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
@@ -70,7 +71,8 @@ function Page (props) {
           }
         </Table>
       </TableContainer>
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 }
@@ -86,7 +88,8 @@ const useStyles = makeStyles({
   paper: {
     display: 'flex',
     justifyContent: 'center',
-    height: '80vh'
+    height: '82vh',
+    backgroundColor: 'white',
   },
   button: {
     margin: 10,

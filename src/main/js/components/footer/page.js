@@ -10,11 +10,9 @@ export default function Page (props) {
   } = props;
 
   return (
-    <div>
-      <footer className={classes.footer}>
-        Version {version}
-      </footer>
-    </div>
+    <footer className={classes.footer}>
+      Version {version}
+    </footer>
   );
 }
 
@@ -23,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     background: '#ffffff',
     padding: 10,
     textAlign: 'left',
-    color: '#828282'
+    color: '#828282',
+    height: '50px',
   }
 }));
