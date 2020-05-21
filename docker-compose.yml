@@ -45,7 +45,7 @@ services:
       MYSQL_HOST: docker-mysql
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db_news
-      INSTANCE_ID: is_1
+      INSTANCE_ID: prueba1
 
   indexationsystem2:
     image: "${REPOSITORY}/${ARTIFACT_ID}:${VERSION}"
@@ -61,7 +61,7 @@ services:
       MYSQL_HOST: docker-mysql
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db_news
-      INSTANCE_ID: is_2
+      INSTANCE_ID: prueba2
 
 networks:
   indexationsystem-network:
