@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+  <id>aws</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/aws</directory>
+      <includes>
+        <include>**</include>
+      </includes>
+      <excludes>
+        <exclude>src/main/aws/Dockerrun.aws.json</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet>
+      <directory>nginx</directory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <files>
+    <file>
+      <source>src/main/aws/Dockerrun.aws.json</source>
+    </file>
+  </files>
+</assembly>
