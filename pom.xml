@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.project</groupId>
 	<artifactId>isystem</artifactId>
-	<version>2.0</version>
+	<version>1.2</version>
 	<name>demo</name>
 	<description>Indexation System</description>
 	<packaging>jar</packaging>
