@@ -21,7 +21,7 @@
           "image": "mysql:5.7",
           "mountPoints": [
               {
-                  "containerPath": "/var/lib/mysql",
+                  "containerPath": "/var/app/current/sql-spring",
                   "sourceVolume": "Sql-Spring"
               }
           ],
@@ -52,7 +52,7 @@
                   "value": "prueba1"
               }
           ],
-          "essential": true,
+          "essential": false,
           "memoryReservation": 128,
           "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
           "name": "indexationsystem1"
@@ -76,7 +76,7 @@
                   "value": "prueba2"
               }
           ],
-          "essential": true,
+          "essential": false,
           "memoryReservation": 128,
           "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
           "name": "indexationsystem2"
