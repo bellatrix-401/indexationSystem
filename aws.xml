@@ -26,8 +26,5 @@
     <file>
       <source>src/main/aws/Dockerrun.aws.json</source>
     </file>
-    <file>
-      <source>.env</source>
-    </file>
   </files>
 </assembly>
