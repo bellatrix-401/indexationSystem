@@ -52,7 +52,7 @@
                   "value": "prueba1"
               }
           ],
-          "essential": false,
+          "essential": true,
           "memoryReservation": 128,
           "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
           "name": "indexationsystem1"
@@ -76,7 +76,7 @@
                   "value": "prueba2"
               }
           ],
-          "essential": false,
+          "essential": true,
           "memoryReservation": 128,
           "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
           "name": "indexationsystem2"
