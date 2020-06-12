@@ -24,7 +24,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on: 
       - indexationsystem1
       - indexationsystem2

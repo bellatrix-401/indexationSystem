@@ -88,7 +88,7 @@
           "mountPoints": [
               {
                   "containerPath": "/etc/nginx/conf.d",
-                  "sourceVolume": "_Nginx"
+                  "sourceVolume": "nginx-volume"
               }
           ],
           "name": "nginx",
@@ -110,9 +110,9 @@
       },
       {
           "host": {
-              "sourcePath": "/var/app/current/nginx"
+              "sourcePath": "/var/app/current/nginx/conf.d"
           },
-          "name": "_Nginx"
+          "name": "nginx-volume"
       }
   ]
 }
