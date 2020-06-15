@@ -19,7 +19,7 @@
       "name": "docker-mysql",
       "image": "mysql:5.7",
       "essential": true,
-      "memoryReservation": 512,
+      "memoryReservation": 256,
       "portMappings": [
         {
           "containerPort": 3306,
