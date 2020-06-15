@@ -8,18 +8,13 @@
   <fileSets>
     <fileSet>
       <directory>src/main/aws</directory>
-      <includes>
-        <include>**</include>
-      </includes>
+      <outputDirectory>/</outputDirectory>
       <excludes>
-        <exclude>src/main/aws/Dockerrun.aws.json</exclude>
+        <exclude>*.aws.json</exclude>
       </excludes>
     </fileSet>
     <fileSet>
       <directory>nginx</directory>
-      <includes>
-        <include>**</include>
-      </includes>
     </fileSet>
   </fileSets>
   <files>
