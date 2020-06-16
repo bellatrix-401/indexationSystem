@@ -19,7 +19,7 @@
       "name": "docker-mysql",
       "image": "mysql:5.7",
       "essential": true,
-      "memoryReservation": 256,
+      "memoryReservation": 450,
       "portMappings": [
         {
           "containerPort": 3306,
@@ -49,9 +49,9 @@
     },
     {
       "name": "indexationsystem1",
-      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
+      "image": "bc01.dev.lab.plugbox.io:8085/docker-is/isystem:3.0",
       "essential": true,
-      "memoryReservation": 256,
+      "memoryReservation": 160,
       "links": [
         "docker-mysql"
       ],
@@ -76,9 +76,9 @@
     },
     {
       "name": "indexationsystem2",
-      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
+      "image": "bc01.dev.lab.plugbox.io:8085/docker-is/isystem:3.0",
       "essential": true,
-      "memoryReservation": 256,
+      "memoryReservation": 160,
       "links": [
         "docker-mysql"
       ],
@@ -105,7 +105,7 @@
       "name": "nginx",
       "image": "nginx",
       "essential": true,
-      "memoryReservation": 256,
+      "memoryReservation": 128,
       "portMappings": [
         {
           "containerPort": 80,
