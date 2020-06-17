@@ -49,7 +49,7 @@
     },
     {
       "name": "indexationsystem1",
-      "image": "bc01.dev.lab.plugbox.io:8085/docker-is/isystem:3.0",
+      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
       "essential": true,
       "memoryReservation": 160,
       "links": [
@@ -76,7 +76,7 @@
     },
     {
       "name": "indexationsystem2",
-      "image": "bc01.dev.lab.plugbox.io:8085/docker-is/isystem:3.0",
+      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
       "essential": true,
       "memoryReservation": 160,
       "links": [
