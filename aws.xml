@@ -13,9 +13,6 @@
         <exclude>*.aws.json</exclude>
       </excludes>
     </fileSet>
-    <fileSet>
-      <directory>nginx</directory>
-    </fileSet>
   </fileSets>
   <files>
     <file>

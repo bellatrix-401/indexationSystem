@@ -1,127 +1,13 @@
 {
-  "AWSEBDockerrunVersion": "2",
-  "volumes": [
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
+    "Update": "true"
+  },
+  "Ports": [
     {
-      "name": "sql-spring",
-      "host": {
-        "sourcePath": "/var/app/current/sql-spring"
-      }
-    },
-    {
-      "name": "nginx-volume",
-      "host": {
-        "sourcePath": "/var/app/current/nginx/conf.d"
-      }
-    }
-  ],
-  "containerDefinitions": [
-    {
-      "name": "docker-mysql",
-      "image": "mysql:5.7",
-      "essential": true,
-      "memoryReservation": 450,
-      "portMappings": [
-        {
-          "containerPort": 3306,
-          "hostPort": 3306
-        }
-      ],
-      "mountPoints": [
-        {
-          "containerPath": "/var/lib/mysql",
-          "sourceVolume": "sql-spring"
-        }
-      ],
-      "environment": [
-        {
-          "name": "MYSQL_HOST",
-          "value": "docker-mysql"
-        },
-        {
-          "name": "MYSQL_ROOT_PASSWORD",
-          "value": "root"
-        },
-        {
-          "name": "MYSQL_DATABASE",
-          "value": "db_news"
-        }
-      ]
-    },
-    {
-      "name": "indexationsystem1",
-      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
-      "essential": true,
-      "memoryReservation": 160,
-      "links": [
-        "docker-mysql"
-      ],
-      "environment": [
-        {
-          "name": "MYSQL_HOST",
-          "value": "docker-mysql"
-        },
-        {
-          "name": "MYSQL_ROOT_PASSWORD",
-          "value": "root"
-        },
-        {
-          "name": "MYSQL_DATABASE",
-          "value": "db_news"
-        },
-        {
-          "name": "INSTANCE_ID",
-          "value": "prueba1"
-        }
-      ]
-    },
-    {
-      "name": "indexationsystem2",
-      "image": "bc01.dev.lab.plugbox.io:8085/${REPOSITORY}/${ARTIFACT_ID}:${VERSION}",
-      "essential": true,
-      "memoryReservation": 160,
-      "links": [
-        "docker-mysql"
-      ],
-      "environment": [
-        {
-          "name": "MYSQL_HOST",
-          "value": "docker-mysql"
-        },
-        {
-          "name": "MYSQL_ROOT_PASSWORD",
-          "value": "root"
-        },
-        {
-          "name": "MYSQL_DATABASE",
-          "value": "db_news"
-        },
-        {
-          "name": "INSTANCE_ID",
-          "value": "prueba2"
-        }
-      ]
-    },
-    {
-      "name": "nginx",
-      "image": "nginx",
-      "essential": true,
-      "memoryReservation": 128,
-      "portMappings": [
-        {
-          "containerPort": 80,
-          "hostPort": 80
-        }
-      ],
-      "links": [
-        "indexationsystem1",
-        "indexationsystem2"
-      ],
-      "mountPoints": [
-        {
-          "containerPath": "/etc/nginx/conf.d",
-          "sourceVolume": "nginx-volume"
-        }
-      ]
+      "ContainerPort": 80,
+      "HostPort": 80
     }
   ]
 }
